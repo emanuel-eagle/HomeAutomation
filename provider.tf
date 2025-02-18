@@ -1,3 +1,3 @@
 provider "aws" {
-  region = var.default-region
+  region = var.default_region
 }
