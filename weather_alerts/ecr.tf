@@ -5,3 +5,8 @@ resource "aws_ecr_repository" "home-automation-container-repository" {
     scan_on_push = true
   }
 }
+
+variable "container_repo_name" {
+  type = string
+  default = "weather-alerts-container-repository"
+} 
