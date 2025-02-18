@@ -7,7 +7,7 @@ variable package_type {
 resource "aws_lambda_function" "weather_alerts_lambda_function" {
   function_name = var.lambda_function_name
   role          = aws_iam_role.iam_for_lambda.arn
-  image_uri     = "${aws_ecr_repository.repo.repository_url}:latest"
+  image_uri     = "${aws_ecr_repository.weather-alerts.repository_url}:latest"
   package_type = var.package_type
   environment {
     variables = {
