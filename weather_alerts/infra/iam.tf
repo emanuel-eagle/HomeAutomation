@@ -24,6 +24,12 @@ data "aws_iam_policy_document" "lambda_policy_document" {
     resources = [aws_ecr_repository.weather-alerts-container-repository.arn]
   }
 
+  statement {
+    effect    = var.allow_string
+    actions   = var.cloudwatch_permissions_list
+    resources = [aws_cloudwatch_log_group.rain_alerting_cloudwatch_group.arn]
+  }
+
 }
 
 resource "aws_iam_policy" "lambda_policy" {
@@ -42,6 +48,12 @@ variable ecr_permissions_list {
     description = "Permissions for the Lambda function"
     type = list
     default = ["ecr:BatchGetImage", "ecr:GetDownloadUrlForLayer"]
+}
+
+variable cloudwatch_permissions_list {
+    description = "Permissions for the Lambda function"
+    type = list
+    default = ["logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents"]
 }
 
 variable allow_string {
