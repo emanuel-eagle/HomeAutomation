@@ -4,6 +4,10 @@ variable package_type {
     default = "Image"
 }
 
+locals {
+  webhook_url = jsondecode(data.aws_secretsmanager_secret_version.current.secret_string)["RAIN_NOTIFICATION_WEBHOOK"]
+}
+
 resource "aws_lambda_function" "weather_alerts_lambda_function" {
   function_name = var.lambda_function_name
   role          = aws_iam_role.iam_for_lambda.arn
@@ -13,7 +17,7 @@ resource "aws_lambda_function" "weather_alerts_lambda_function" {
     variables = {
       NWS_URL = var.NWS_URL_BOS
       ALERT_RANGE = var.ALERT_RANGE
-      WEBHOOK_URL = var.RAIN_NOTIFICATION_WEBHOOK
+      WEBHOOK_URL = local.webhook_url
     }
   }
 }
