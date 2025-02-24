@@ -27,7 +27,7 @@ data "aws_iam_policy_document" "lambda_policy_document" {
   statement {
     effect    = var.allow_string
     actions   = var.cloudwatch_permissions_list
-    resources = [aws_cloudwatch_log_group.rain_alerting_cloudwatch_group.arn]
+    resources = ["*"]
   }
 
 }
