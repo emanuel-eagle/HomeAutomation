@@ -23,3 +23,5 @@ def lambda_handler(event, context):
             "statusCode": weather_request.status_code,
             "message": "Successfully ran alerting lambda."
         }
+
+lambda_handler("", "")
