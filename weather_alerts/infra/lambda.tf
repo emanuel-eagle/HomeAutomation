@@ -5,7 +5,7 @@ variable package_type {
 }
 
 locals {
-  webhook_url = jsondecode(data.aws_secretsmanager_secret_version.current.secret_string)["homeautomation/prod/iftt_rain_alert_webhook"]
+  webhook_url = jsondecode(data.aws_secretsmanager_secret_version.current.secret_string)["RAIN_NOTIFICATION_WEBHOOK"]
 }
 
 resource "aws_lambda_function" "weather_alerts_lambda_function" {
