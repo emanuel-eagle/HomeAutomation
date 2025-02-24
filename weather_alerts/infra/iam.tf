@@ -21,7 +21,7 @@ data "aws_iam_policy_document" "lambda_policy_document" {
   statement {
     effect    = var.allow_string
     actions   = var.ecr_permissions_list
-    resources = [aws_ecr_repository.weather-alerts.arn]
+    resources = [aws_ecr_repository.weather-alerts-container-repository.arn]
   }
 
 }
