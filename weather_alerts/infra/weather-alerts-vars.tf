@@ -1,6 +1,14 @@
-variable RAIN_NOTIFICATION_WEBHOOK {
-    sensitive = true
-    type = string
+data "aws_secretsmanager_secret" "existing_secret" {
+  name = "homeautomation/prod/iftt_rain_alert_webhook"
+}
+
+data "aws_secretsmanager_secret_version" "current" {
+  secret_id = data.aws_secretsmanager_secret.existing_secret.id
+}
+
+variable "RAIN_NOTIFICATION_WEBHOOK" {
+  sensitive = true
+  type      = string
 }
 
 variable ALERT_RANGE {
@@ -17,3 +25,4 @@ variable lambda_function_name {
     type = string
     default = "weather_alerts"
 }
+
