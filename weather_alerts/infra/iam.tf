@@ -27,7 +27,7 @@ data "aws_iam_policy_document" "lambda_policy_document" {
 }
 
 resource "aws_iam_policy" "lambda_policy" {
-  name   = "lambda-policy"
+  name   = "lambda-policy-rain-alert-notification"
   policy = data.aws_iam_policy_document.lambda_policy_document.json
 }
 
