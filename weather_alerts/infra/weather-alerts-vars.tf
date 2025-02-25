@@ -28,12 +28,12 @@ variable lambda_function_name {
 
 variable lambda_timeout {
     type = number
-    default = 20
+    default = 10
 }
 
 variable memory_size {
     type = number
-    default = 256
+    default = 128
 }
 
 variable lambda_image_tag {
