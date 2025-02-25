@@ -31,6 +31,11 @@ variable lambda_timeout {
     default = 20
 }
 
+variable memory_size {
+    type = number
+    default = 256
+}
+
 variable lambda_image_tag {
   type = string
 }

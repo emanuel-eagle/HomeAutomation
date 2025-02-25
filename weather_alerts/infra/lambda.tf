@@ -14,7 +14,7 @@ resource "aws_lambda_function" "weather_alerts_lambda_function" {
   image_uri     = "${aws_ecr_repository.weather-alerts-container-repository.repository_url}:${var.lambda_image_tag}"
   package_type = var.package_type
   timeout = var.lambda_timeout
-  memory_size = 512
+  memory_size = var.memory_size
   environment {
     variables = {
       NWS_URL = var.NWS_URL_BOS
