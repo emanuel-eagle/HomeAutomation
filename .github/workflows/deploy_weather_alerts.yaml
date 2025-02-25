@@ -47,3 +47,5 @@ jobs:
         add: "weather_alerts/infra/image_tag.auto.tfvars"
         message: "updating image tag"
         default_author: github_actions
+        github_token: ${{ secrets.PAT_TOKEN }}  # Use a Personal Access Token with repo scope
+
