@@ -11,7 +11,7 @@ locals {
 resource "aws_lambda_function" "weather_alerts_lambda_function" {
   function_name = var.lambda_function_name
   role          = aws_iam_role.iam_for_lambda.arn
-  image_uri     = "${aws_ecr_repository.weather-alerts-container-repository.repository_url}:latest"
+  image_uri     = "${aws_ecr_repository.weather-alerts-container-repository.repository_url}:${var.lambda_image_tag}"
   package_type = var.package_type
   timeout = 60
   memory_size = 512
