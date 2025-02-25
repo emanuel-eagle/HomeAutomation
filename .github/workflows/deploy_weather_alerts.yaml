@@ -33,7 +33,6 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       run: |
         # Build Docker image
-        cd weather_alerts
         docker build -t $ECR_REPOSITORY:${{ github.sha }} -f ./weather_alerts/Dockerfile .
         
         # Push images to ECR
