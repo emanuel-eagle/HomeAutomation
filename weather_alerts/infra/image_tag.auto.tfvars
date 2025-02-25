@@ -1,1 +1,1 @@
-lambda_image_tag = "09b7ba8a636a8df8bb73cd5b0bbabb02f191b092"
+lambda_image_tag = "238da4b4d98a681ee3ec370ed286277fcaa4cd90"
