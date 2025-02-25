@@ -26,3 +26,9 @@ variable lambda_function_name {
     default = "weather_alerts"
 }
 
+variable lambda_timeout {
+    type = number
+    default = 20
+}
+
+
