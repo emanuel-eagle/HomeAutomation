@@ -36,3 +36,12 @@ jobs:
         
         # Push images to ECR
         docker push $ECR_REPOSITORY:latest
+    - name: Update auto.tfvars file to point to new lambda image tag
+      run: |
+        echo "lambda_image_tag" = \"${{ github.sha }}\" > weather_alerts/infra/image_tag.auto.tfvars
+      
+    - name: Push tfvars
+      uses: EndBug/add-and-commit@v9
+      with:
+        add: "weather_alerts/infra/image_tag.auto.tfvars"
+        message: "updating image tag"

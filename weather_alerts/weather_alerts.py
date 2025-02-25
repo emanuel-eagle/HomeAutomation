@@ -8,9 +8,11 @@ def rain_check(forecast_content):
     return False
 
 def lambda_handler(event, context):
+    print("started")
     nws_url = os.environ["NWS_URL"]
     alert_range = int(os.environ["ALERT_RANGE"])
     ifttt_webhook = os.environ["WEBHOOK_URL"]
+    print("got environmental variables")
     rain_alert_sent = False
     weather_request = requests.get(nws_url)
     weather_response_content = weather_request.json()["properties"]["periods"][:alert_range]
